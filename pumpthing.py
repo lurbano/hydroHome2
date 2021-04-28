@@ -11,15 +11,17 @@ secondsneeded=(60*60*24)-pumpTime
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(in1, GPIO.OUT)
 
-while True:
-    GPIO.output(in1, True)
-    time.sleep(pumpTime)
-    GPIO.output(in1, False)
-    print("PumPiNg nOW")
-    time.sleep(secondsneeded)
+try:
+    while True:
+        GPIO.output(in1, True)
+        time.sleep(pumpTime)
+        GPIO.output(in1, False)
+        print("PumPiNg nOW")
+        time.sleep(secondsneeded)
 
 #25 ml per second per pump
 #trying to fill 21L
 
-
-GPIO.cleanup()
+except KeyboardInterrupt:
+    GPIO.output(in1, False)
+    GPIO.cleanup()

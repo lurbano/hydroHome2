@@ -14,7 +14,7 @@ GPIO.setup(in1, GPIO.OUT)
 try:
     while True:
         print("PumPiNg nOW")
-        print("pumping for:", pumptime)
+        print("pumping for:", pumpTime)
         GPIO.output(in1, True)
         time.sleep(pumpTime)
         print("Done Pumping")

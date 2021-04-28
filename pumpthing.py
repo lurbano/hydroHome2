@@ -4,7 +4,7 @@ import time
 in1 = 16
 
 
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 GPIO.setup(in1, GPIO.OUT)
 
 

@@ -13,10 +13,13 @@ GPIO.setup(in1, GPIO.OUT)
 
 try:
     while True:
+        print("PumPiNg nOW")
+        print("pumping for:", pumptime)
         GPIO.output(in1, True)
         time.sleep(pumpTime)
+        print("Done Pumping")
         GPIO.output(in1, False)
-        print("PumPiNg nOW")
+
         time.sleep(secondsneeded)
 
 #25 ml per second per pump

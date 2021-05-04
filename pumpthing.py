@@ -45,6 +45,7 @@ try:
             time.sleep(t)
             endT= time.time()
             elapsedT= endT-startT
+            print (elapsedT)
 
         print("Done Pumping")
         GPIO.output(in1, False)

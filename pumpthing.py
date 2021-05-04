@@ -56,6 +56,5 @@ try:
 #trying to fill 21L
 
 except KeyboardInterrupt:
-    proc.kill()
     GPIO.output(in1, False)
     GPIO.cleanup()

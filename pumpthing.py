@@ -28,7 +28,7 @@ try:
         GPIO.output(in1, True)
 #LED Pattern
         startT= time.time()
-        if elapsedT < pumpTime:
+        while elapsedT < pumpTime:
             for i in range(20):
                 rval=i**1.7
                 bval=255-i**1.7

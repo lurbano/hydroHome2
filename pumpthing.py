@@ -18,7 +18,7 @@ VolNeeded=21000
 pumpTime= VolNeeded/pumpRate
 secondsneeded=(60*60*24)-pumpTime
 #REMOVE LATER
-pumpTime=60
+pumpTime=60*30
 
 elapsedT =0
 GPIO.setmode(GPIO.BCM)

@@ -9,6 +9,7 @@ timestorun=4
 numpix = 20
 t=.03
 t2=.05
+pixels = neopixel.NeoPixel(board.D18, numpix)
 
 #pump stuff
 in1 = 16
@@ -17,7 +18,7 @@ VolNeeded=21000
 pumpTime= VolNeeded/pumpRate
 secondsneeded=(60*60*24)-pumpTime
 
-elapsedT=0
+elapsedT =0
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(in1, GPIO.OUT)
 

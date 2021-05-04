@@ -17,6 +17,8 @@ pumpRate=25
 VolNeeded=21000
 pumpTime= VolNeeded/pumpRate
 secondsneeded=(60*60*24)-pumpTime
+#REMOVE LATER
+pumpTime=60
 
 elapsedT =0
 GPIO.setmode(GPIO.BCM)
@@ -45,7 +47,6 @@ try:
             time.sleep(t)
             endT= time.time()
             elapsedT= endT-startT
-            print (elapsedT)
 
         print("Done Pumping")
         GPIO.output(in1, False)

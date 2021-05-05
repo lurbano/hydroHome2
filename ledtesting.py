@@ -22,7 +22,7 @@ for i in range(maxLED):
     rval=i**1.7
     bval=255-i**1.7
     pixels[i] = (rval,0,bval)
-    t=flowrate/500
+    t=.5/flowrate
     time.sleep(t)
     pixels[i] = (0,0,0)
 time.sleep(t)

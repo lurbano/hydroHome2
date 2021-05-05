@@ -13,7 +13,7 @@ secondsneeded=(60*60*24)-pumpTime
 #LED stuff
 timestorun=4
 numpix = 20
-t2=.05
+t2=.02
 pixels = neopixel.NeoPixel(board.D18, numpix)
 
 flowrate=25

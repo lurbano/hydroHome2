@@ -4,12 +4,6 @@ import board
 import neopixel
 
 
-#LED stuff
-timestorun=4
-numpix = 20
-t=.03
-t2=.05
-pixels = neopixel.NeoPixel(board.D18, numpix)
 
 #pump stuff
 in1 = 16
@@ -17,6 +11,14 @@ pumpRate=25
 VolNeeded=21000
 pumpTime= VolNeeded/pumpRate
 secondsneeded=(60*60*24)-pumpTime
+
+#LED stuff
+timestorun=4
+numpix = 20
+t=.03
+t2=.05
+pixels = neopixel.NeoPixel(board.D18, numpix)
+
 #REMOVE LATER
 
 

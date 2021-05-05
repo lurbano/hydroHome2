@@ -17,7 +17,7 @@ t2=.02
 pixels = neopixel.NeoPixel(board.D18, numpix)
 
 flowrate=25
-for i in range(20):
+for i in range(15):
     rval=i**1.7
     bval=255-i**1.7
     pixels[i] = (rval,0,bval)

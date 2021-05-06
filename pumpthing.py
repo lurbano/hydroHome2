@@ -33,7 +33,7 @@ try:
 #LED Pattern
         startT= time.time()
         while elapsedT < pumpTime:
-            
+
             flowrate=15
             maxLED= int((elapsedT/pumpTime)*20)
             t=.5/flowrate
@@ -46,7 +46,7 @@ try:
                 pixels[i] = (0,0,0)
             time.sleep(t)
             for i in range(maxLED-1,-1,-1):
-                t2= (5/(i+1))/flowrate
+                t2= (5/(i+1))/20
                 bval=i**1.7
                 rval=255-i**1.7
                 pixels[i] = (0,rval,bval)

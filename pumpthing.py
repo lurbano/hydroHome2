@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 import time
 import board
 import neopixel
-
+import math
 
 
 #pump stuff
@@ -33,20 +33,27 @@ try:
 #LED Pattern
         startT= time.time()
         while elapsedT < pumpTime:
-            for i in range(20):
+            
+            flowrate=15
+            maxLED= int((elapsedT/pumpTime)*20)
+            t=.5/flowrate
+
+            for i in range(maxLED):
                 rval=i**1.7
                 bval=255-i**1.7
-                pixels[i] = (rval,0,bval)
+                pixels[i] = (0,rval,bval)
                 time.sleep(t)
                 pixels[i] = (0,0,0)
             time.sleep(t)
-            for i in range(19,-1,-1):
+            for i in range(maxLED-1,-1,-1):
+                t2= (5/(i+1))/flowrate
                 bval=i**1.7
                 rval=255-i**1.7
-                pixels[i] = (rval,0,bval)
+                pixels[i] = (0,rval,bval)
                 time.sleep(t2)
                 pixels[i] = (0,0,0)
             time.sleep(t)
+
             endT= time.time()
             elapsedT= endT-startT
 

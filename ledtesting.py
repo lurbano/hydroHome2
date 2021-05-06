@@ -17,7 +17,7 @@ numpix = 20
 
 pixels = neopixel.NeoPixel(board.D18, numpix)
 
-flowrate=25
+flowrate=15
 maxLED= 15
 t=.5/flowrate
 

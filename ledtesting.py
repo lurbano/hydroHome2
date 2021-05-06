@@ -2,6 +2,7 @@ import RPi.GPIO as GPIO
 import time
 import board
 import neopixel
+import math
 
 #pump stuff
 in1 = 16
@@ -28,7 +29,7 @@ for i in range(maxLED):
     pixels[i] = (0,0,0)
 time.sleep(t)
 for i in range(maxLED-1,-1,-1):
-    t2= (i**.5)/20
+    t2= math.log(i)
     bval=i**1.7
     rval=255-i**1.7
     pixels[i] = (0,rval,bval)

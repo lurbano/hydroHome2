@@ -29,7 +29,7 @@ for i in range(maxLED):
     pixels[i] = (0,0,0)
 time.sleep(t)
 for i in range(maxLED-1,-1,-1):
-    t2= (math.log(-i+21,(10)))/5
+    t2= (math.log(-i+maxLED+1,(10)))/5
     bval=i**1.7
     rval=255-i**1.7
     pixels[i] = (0,rval,bval)

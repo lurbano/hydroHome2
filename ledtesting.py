@@ -20,19 +20,18 @@ pixels = neopixel.NeoPixel(board.D18, numpix)
 flowrate=15
 
 t=.75
-
-for i in range(20):
-    rval=i**1.7
-    bval=255-i**1.7
-    pixels[i] = (0,rval,bval)
+for j in range(5):
+    for i in range(20):
+        rval=i**1.7
+        bval=255-i**1.7
+        pixels[i] = (0,rval,bval)
+        time.sleep(t)
+        pixels[i] = (0,0,0)
+    for i in range(19,-1,-1):
+        t2= (5/(i+1))/12
+        bval=i**1.7
+        rval=255-i**1.7
+        pixels[i] = (0,-rval+255,-bval+255)
+        time.sleep(t2)
+        pixels[i] = (0,0,0)
     time.sleep(t)
-    pixels[i] = (0,0,0)
-time.sleep(t)
-for i in range(19,-1,-1):
-    t2= (5/(i+1))/12
-    bval=i**1.7
-    rval=255-i**1.7
-    pixels[i] = (0,-rval+255,-bval+255)
-    time.sleep(t2)
-    pixels[i] = (0,0,0)
-time.sleep(t)

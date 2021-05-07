@@ -32,7 +32,7 @@ for i in range(19,-1,-1):
     t2= (5/(i+1))/flowrate
     bval=i**1.7
     rval=255-i**1.7
-    pixels[i] = (0,-rval+254,-bval+254)
+    pixels[i] = (0,-rval+255,-bval+255)
     time.sleep(t2)
     pixels[i] = (0,0,0)
 time.sleep(t)

@@ -34,4 +34,3 @@ for j in range(5):
         pixels[i] = (0,-rval+255,-bval+255)
         time.sleep(t2)
         pixels[i] = (0,0,0)
-    time.sleep(t)

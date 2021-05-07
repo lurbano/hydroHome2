@@ -30,7 +30,7 @@ try:
     while True:
         print("pumping for:", pumpTime)
         GPIO.output(in1, True)
-#LED Pattern
+#LED Pattern while Pumping
         startT= time.time()
         while elapsedT < pumpTime:
 
@@ -60,7 +60,26 @@ try:
         print("Done Pumping")
         GPIO.output(in1, False)
 
-        time.sleep(secondsneeded)
+#LED program while idle
+        t3=.75
+        startT2= time.time()
+        while elapsedT2 < secondsneeded:
+
+            for i in range(20):
+                rval=i**1.7
+                bval=255-i**1.7
+                pixels[i] = (0,rval,bval)
+                time.sleep(t3)
+                pixels[i] = (0,0,0)
+            for i in range(19,-1,-1):
+                t4= (5/(i+1))/12
+                bval=i**1.7
+                rval=255-i**1.7
+                pixels[i] = (0,-rval+255,-bval+255)
+                time.sleep(t4)
+                pixels[i] = (0,0,0)
+            endT2= time.time()
+            elapsedT2= endT2-startT2
 
 #25 ml per second per pump
 #trying to fill 21L
@@ -68,3 +87,5 @@ try:
 except KeyboardInterrupt:
     GPIO.output(in1, False)
     GPIO.cleanup()
+    for i in range(20):
+        pixels[i]=(0,0,0)

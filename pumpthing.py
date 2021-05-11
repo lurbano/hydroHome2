@@ -3,6 +3,8 @@ import time
 import board
 import neopixel
 import math
+import argparse
+
 
 
 #pump stuff
@@ -12,6 +14,8 @@ VolNeeded=21000
 pumpTime= VolNeeded/pumpRate
 secondsneeded=(60*60*24)-pumpTime
 
+pumpTime=45
+secondsneeded=30
 #LED stuff
 timestorun=4
 numpix = 20
@@ -19,8 +23,16 @@ t=.03
 t2=.05
 pixels = neopixel.NeoPixel(board.D18, numpix)
 
-#REMOVE LATER
-pumpTime = 20
+parser = argparse.ArgumentParser()
+parser.add_argument("-p", "--pump", help = "on or off")
+args = parser.parse_args()
+
+#sudo python3 pumpthing.py --pump on
+
+pumpOn=True
+if args.pump:
+    if args.pump == "off":
+        pumpOn = False
 
 elapsedT =0
 GPIO.setmode(GPIO.BCM)
@@ -28,37 +40,40 @@ GPIO.setup(in1, GPIO.OUT)
 
 try:
     while True:
-        print("pumping for:", pumpTime)
-        GPIO.output(in1, True)
-#LED Pattern while Pumping
-        startT= time.time()
-        while elapsedT < pumpTime:
+        if pumpOn == False:
+            pumpOn=True
+        else:
+            print("pumping for:", pumpTime)
+            GPIO.output(in1, True)
+    #LED Pattern while Pumping
+            startT= time.time()
+            while elapsedT < pumpTime:
 
-            flowrate=15
-            maxLED= int((elapsedT/pumpTime)*20)
-            t=.5/flowrate
+                flowrate=15
+                maxLED= int((elapsedT/pumpTime)*20)
+                t=.5/flowrate
 
-            for i in range(maxLED):
-                rval=i**1.7
-                bval=255-i**1.7
-                pixels[i] = (0,rval,bval)
+                for i in range(maxLED):
+                    rval=i**1.7
+                    bval=255-i**1.7
+                    pixels[i] = (0,rval,bval)
+                    time.sleep(t)
+                    pixels[i] = (0,0,0)
                 time.sleep(t)
-                pixels[i] = (0,0,0)
-            time.sleep(t)
-            for i in range(maxLED-1,-1,-1):
-                t2= (5/(i+1))/20
-                bval=i**1.7
-                rval=255-i**1.7
-                pixels[i] = (0,rval,bval)
-                time.sleep(t2)
-                pixels[i] = (0,0,0)
-            time.sleep(t)
+                for i in range(maxLED-1,-1,-1):
+                    t2= (5/(i+1))/20
+                    bval=i**1.7
+                    rval=255-i**1.7
+                    pixels[i] = (0,rval,bval)
+                    time.sleep(t2)
+                    pixels[i] = (0,0,0)
+                time.sleep(t)
 
-            endT= time.time()
-            elapsedT= endT-startT
+                endT= time.time()
+                elapsedT= endT-startT
 
-        print("Done Pumping")
-        GPIO.output(in1, False)
+            print("Done Pumping")
+            GPIO.output(in1, False)
 
 #LED program while idle
         t3=.75

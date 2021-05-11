@@ -14,8 +14,7 @@ VolNeeded=21000
 pumpTime= VolNeeded/pumpRate
 secondsneeded=(60*60*24)-pumpTime
 
-pumpTime=45
-secondsneeded=30
+
 #LED stuff
 timestorun=4
 numpix = 20

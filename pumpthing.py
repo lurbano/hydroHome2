@@ -20,7 +20,7 @@ t2=.05
 pixels = neopixel.NeoPixel(board.D18, numpix)
 
 #REMOVE LATER
-
+pumpTime = 20
 
 elapsedT =0
 GPIO.setmode(GPIO.BCM)
@@ -63,6 +63,7 @@ try:
 #LED program while idle
         t3=.75
         startT2= time.time()
+        elapsedT2=0
         while elapsedT2 < secondsneeded:
 
             for i in range(20):

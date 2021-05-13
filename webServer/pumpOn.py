@@ -15,6 +15,8 @@ secondsneeded=(60*60*24)-pumpTime
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(in1, GPIO.OUT)
 
+elapsedT =0
+
 
 #LED stuff
 timestorun=4

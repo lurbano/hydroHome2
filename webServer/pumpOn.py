@@ -12,6 +12,8 @@ pumpRate=25
 VolNeeded=21000
 pumpTime= VolNeeded/pumpRate
 secondsneeded=(60*60*24)-pumpTime
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(in1, GPIO.OUT)
 
 
 #LED stuff
@@ -21,8 +23,9 @@ t=.03
 t2=.05
 pixels = neopixel.NeoPixel(board.D18, numpix)
 
-
 pumpTime=25
+
+
 
 print("pumping for:", pumpTime)
 GPIO.output(in1, True)

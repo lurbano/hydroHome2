@@ -13,7 +13,7 @@ pumpRate=25
 VolNeeded=21000
 pumpTime= VolNeeded/pumpRate
 secondsneeded=(60*60*24)-pumpTime
-
+pumptime=10
 
 #LED stuff
 timestorun=4
@@ -71,8 +71,9 @@ try:
                 endT= time.time()
                 elapsedT= endT-startT
 
-            print("Done Pumping")
+
             GPIO.output(in1, False)
+            print("Done Pumping")
 
 #LED program while idle
         t3=.75

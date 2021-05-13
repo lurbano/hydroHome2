@@ -27,37 +27,45 @@ pixels = neopixel.NeoPixel(board.D18, numpix)
 
 pumpTime=25
 
+try:
+
+    print("pumping for:", pumpTime)
+    GPIO.output(in1, True)
+    #LED Pattern while Pumping
+    startT= time.time()
+    while elapsedT < pumpTime:
+
+        flowrate=15
+        maxLED= int((elapsedT/pumpTime)*20)
+        t=.5/flowrate
+
+        for i in range(maxLED):
+            rval=i**1.7
+            bval=255-i**1.7
+            pixels[i] = (0,rval,bval)
+            time.sleep(t)
+            pixels[i] = (0,0,0)
+
+        for i in range(maxLED-1,-1,-1):
+            t2= (5/(i+1))/20
+            bval=i**1.7
+            rval=255-i**1.7
+            pixels[i] = (0,rval,bval)
+            time.sleep(t2)
+            pixels[i] = (0,0,0)
 
 
-print("pumping for:", pumpTime)
-GPIO.output(in1, True)
-#LED Pattern while Pumping
-startT= time.time()
-while elapsedT < pumpTime:
-
-    flowrate=15
-    maxLED= int((elapsedT/pumpTime)*20)
-    t=.5/flowrate
-
-    for i in range(maxLED):
-        rval=i**1.7
-        bval=255-i**1.7
-        pixels[i] = (0,rval,bval)
-        time.sleep(t)
-        pixels[i] = (0,0,0)
-
-    for i in range(maxLED-1,-1,-1):
-        t2= (5/(i+1))/20
-        bval=i**1.7
-        rval=255-i**1.7
-        pixels[i] = (0,rval,bval)
-        time.sleep(t2)
-        pixels[i] = (0,0,0)
+        endT= time.time()
+        elapsedT= endT-startT
 
 
-    endT= time.time()
-    elapsedT= endT-startT
+    GPIO.output(in1, False)
+    print("Done Pumping")
 
+except KeyboardInterrupt:
+    GPIO.output(in1, False)
+    GPIO.cleanup()
 
-GPIO.output(in1, False)
-print("Done Pumping")
+    for i in range(20):
+        pixels[i]=(0,0,0)
+    print("it's all over because of YOU!!")

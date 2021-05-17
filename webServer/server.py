@@ -60,7 +60,6 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 
 			if msg["what"] == "Temperature":
 				print("checking temperature ")
-				t =
 
 				os.system('modprobe w1-gpio')
 				os.system('modprobe w1-therm')
@@ -89,7 +88,8 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 
 					print(read_temp())
 
-
+				t = read_temp()
+				print(t)
 
 				self.write_message({"info":"temperature", "value":t})
 

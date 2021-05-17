@@ -93,6 +93,10 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 
 				self.write_message({"info":"temperature", "value":t})
 
+			if msg["what"] == "turnon":
+				print("turning on ")
+				subprocess.Popen('sudo python3 /home/pi/hydroHome2/webServer/pumpOn.py', shell=True)
+				self.write_message({"info":"temperature", "value":"pumping now"})
 
 
 

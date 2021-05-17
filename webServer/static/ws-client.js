@@ -44,6 +44,10 @@ $(document).ready(function(){
             ws.send(msg);
         });
 
+        $("#pumpon").click(function(){
+            var msg = '{"what": "turnon"}';
+            ws.send(msg);
+        });
 
         $("#restart").click(function(){
           let check = confirm("Restart Server?");

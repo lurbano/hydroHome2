@@ -91,7 +91,9 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 				t = read_temp()
 				print(t)
 
-				self.write_message({"info":"temperature", "value":t})
+
+				#return message
+				self.write_message({"info":"temperature", "value":t="°F"})
 
 			if msg["what"] == "turnon":
 				print("turning on ")

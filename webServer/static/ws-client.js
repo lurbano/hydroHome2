@@ -40,7 +40,7 @@ $(document).ready(function(){
 
 
         $("#temp").click(function(){
-            var msg = '{"what": "Temperature"}';
+            var msg = '{"what": "temperature"}';
             ws.send(msg);
         });
 

@@ -49,6 +49,11 @@ $(document).ready(function(){
             ws.send(msg);
         });
 
+        $("#pumpoff").click(function(){
+            var msg = '{"what": "turnoff"}';
+            ws.send(msg);
+        });
+
         $("#restart").click(function(){
           let check = confirm("Restart Server?");
           if (check){

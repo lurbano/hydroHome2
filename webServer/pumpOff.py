@@ -7,3 +7,5 @@ GPIO.setup(in1, GPIO.OUT)
 
 GPIO.output(in1, False)
 print("Done Pumping")
+
+GPIO.cleanup()

@@ -6,6 +6,4 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(in1, GPIO.OUT)
 
 GPIO.output(in1, True)
-print("Done Pumping")
-
-GPIO.cleanup()
+print("Pumping")

@@ -26,7 +26,7 @@ t2=.05
 pixels = neopixel.NeoPixel(board.D18, numpix)
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-p", "--pumptime", default="600, type=int, help = "time to run in seconds")
+parser.add_argument("-p", "--pumptime", default=600, type=int, help = "time to run in seconds")
 args = parser.parse_args()
 
 pumpTime = args.pumptime

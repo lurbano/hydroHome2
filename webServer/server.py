@@ -105,7 +105,9 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 					subprocess.Popen('sudo python3 /home/pi/hydroHome2/webServer/pumpOff.py', shell=True)
 					self.write_message({"info":"turnoff", "value":"pumping stopped"})
 
-
+			if msg["what"] == "pumptime":
+					pt = int(msg["time"])
+					print("pump time", pt)
 
 
 

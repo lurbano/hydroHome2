@@ -59,6 +59,8 @@ $(document).ready(function(){
             var pt = $("#pumptime").val();
             console.log(pt);
             var msg = '{"what": "pumptime"}';
+            console.log(msg);
+
             ws.send(msg);
         });
 

@@ -21,7 +21,7 @@ import numpy as np
 import os
 import glob
 
-
+numberfromweb=
 
 #Tornado Folder Paths
 settings = dict(
@@ -97,7 +97,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 
 			if msg["what"] == "turnon":
 				print("turning on")
-				subprocess.Popen('sudo python3 /home/pi/hydroHome2/webServer/pumpOn2.py', shell=True)
+				subprocess.Popen(f'sudo python3 /home/pi/hydroHome2/webServer/pumpOn.py --pumptime {numberfromweb}', shell=True)
 				self.write_message({"info":"turnon", "value":"pumping now"})
 
 			if msg["what"] == "turnoff":

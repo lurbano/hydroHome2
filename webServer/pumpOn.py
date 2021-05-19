@@ -46,7 +46,7 @@ try:
         for i in range(maxLED):
             rval=i**1.7
             bval=255-i**1.7
-            pixels[i] = (0,rval/3,bval)
+            pixels[i] = (rval/3,0,bval)
             time.sleep(t)
             pixels[i] = (0,0,0)
 
@@ -55,7 +55,7 @@ try:
             t2= (5/(i+1))/20
             bval=i**1.7
             rval=255-i**1.7
-            pixels[i] = (0,rval/3,bval)
+            pixels[i] = (rval/3,0,bval)
             time.sleep(t2)
             pixels[i] = (0,0,0)
 

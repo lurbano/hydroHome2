@@ -58,10 +58,10 @@ $(document).ready(function(){
           console.log("set pump time");
             var pt = $("#pumptime").val();
             console.log(pt);
-            var msg = '{"what": "pumptime", "time": pt}';
-            console.log(msg);
+            var msg = {"what": "pumptime", "time": pt};
+            console.log(msg)
 
-            ws.send(msg);
+            ws.send(JSON.stringify(msg));
         });
 
 

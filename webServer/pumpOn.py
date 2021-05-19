@@ -25,7 +25,11 @@ t=.03
 t2=.05
 pixels = neopixel.NeoPixel(board.D18, numpix)
 
-pumpTime=25
+parser = argparse.ArgumentParser()
+parser.add_argument("-p", "--pumptime", default="600, type=int, help = "time to run in seconds")
+args = parser.parse_args()
+
+pumpTime = args.pumptime
 
 try:
 
@@ -69,5 +73,5 @@ except KeyboardInterrupt:
     for i in range(20):
         pixels[i]=(0,0,0)
     print("it's all over because of YOU!!")
-    
+
     GPIO.cleanup()

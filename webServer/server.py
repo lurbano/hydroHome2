@@ -21,7 +21,7 @@ import numpy as np
 import os
 import glob
 
-numberfromweb=
+numberfromweb=25
 
 #Tornado Folder Paths
 settings = dict(

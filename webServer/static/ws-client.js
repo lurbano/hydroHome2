@@ -54,6 +54,14 @@ $(document).ready(function(){
             ws.send(msg);
         });
 
+        $("#pumptime").change(function(){
+          console.log("set pump time");
+            var pt = $("#pumptime").val();
+            var msg = '{"what": "pumptime"}';
+            ws.send(msg);
+        });
+
+
         $("#restart").click(function(){
           let check = confirm("Restart Server?");
           if (check){

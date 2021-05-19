@@ -50,7 +50,7 @@ try:
             time.sleep(t)
             pixels[i] = (0,0,0)
 
-        for i in range(maxLED,-1,-1):
+        for i in range(maxLED+1,-1,-1):
 
             t2= (5/(i+1))/20
             bval=i**1.7

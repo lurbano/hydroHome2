@@ -44,16 +44,18 @@ try:
         t=.5/flowrate
 
         for i in range(maxLED):
-            rval=i**1.7
-            bval=255-i**1.7
+            scaling=maxLED/20
+            rval=i**1.7*scaling
+            bval=255-i**1.7*scaling
             pixels[i] = (0,rval,bval)
             time.sleep(t)
             pixels[i] = (0,0,0)
 
         for i in range(maxLED-1,-1,-1):
+            scaling=maxLED/20
             t2= (5/(i+1))/20
-            bval=i**1.7
-            rval=255-i**1.7
+            bval=i**1.7*scaling
+            rval=255-i**1.7*scaling
             pixels[i] = (0,rval/2,bval)
             time.sleep(t2)
             pixels[i] = (0,0,0)

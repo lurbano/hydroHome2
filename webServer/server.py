@@ -21,7 +21,7 @@ import numpy as np
 import os
 import glob
 
-
+numberfromweb=25
 
 #Tornado Folder Paths
 settings = dict(
@@ -108,7 +108,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 			if msg["what"] == "pumptime":
 					pt = int(msg["time"])
 					print("pump time", pt)
-					pt=numberfromweb
+					numberfromweb=pt
 
 
 

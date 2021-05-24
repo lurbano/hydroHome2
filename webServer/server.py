@@ -106,6 +106,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 					self.write_message({"info":"turnoff", "value":"pumping stopped"})
 
 			if msg["what"] == "pumptime":
+					global numberfromweb
 					pt = int(msg["time"])
 					print("pump time", pt)
 					numberfromweb=pt

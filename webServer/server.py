@@ -108,7 +108,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 			if msg["what"] == "pumptime":
 					pt = int(msg["time"])
 					print("pump time", pt)
-					numberfromweb=pt
+					pt=numberfromweb
 
 
 

@@ -68,11 +68,12 @@ try:
     print("Done Pumping")
 
 except:
+    for i in range(20):
+        pixels[i]=(0,0,0)
     GPIO.output(in1, False)
     GPIO.cleanup()
 
-    for i in range(20):
-        pixels[i]=(0,0,0)
+
     print("it's all over because of YOU!!")
 
     GPIO.cleanup()

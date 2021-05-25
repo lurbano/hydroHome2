@@ -99,7 +99,7 @@ try:
 #25 ml per second per pump
 #trying to fill 21L
 
-except KeyboardInterrupt:
+except:
     GPIO.output(in1, False)
     GPIO.cleanup()
     for i in range(20):

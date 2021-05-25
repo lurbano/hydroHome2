@@ -67,7 +67,7 @@ try:
     GPIO.output(in1, False)
     print("Done Pumping")
 
-except KeyboardInterrupt:
+except:
     GPIO.output(in1, False)
     GPIO.cleanup()
 

@@ -45,9 +45,10 @@ $(document).ready(function(){
         });
 
         $("#pumpon").click(function(){
-            var msg = '{"what": "turnon", "time": pt}';
+            var pt = $("#pumptime").val();
+            var msg = {"what": "turnon", "time": pt};
+            ws.send(JSON.stringify(msg));
 
-            ws.send(msg);
         });
 
         $("#pumpoff").click(function(){

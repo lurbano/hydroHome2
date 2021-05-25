@@ -45,7 +45,8 @@ $(document).ready(function(){
         });
 
         $("#pumpon").click(function(){
-            var msg = '{"what": "turnon"}';
+            var msg = '{"what": "turnon", "time": pt}';
+
             ws.send(msg);
         });
 
@@ -54,15 +55,15 @@ $(document).ready(function(){
             ws.send(msg);
         });
 
-        $("#pumptime").change(function(){
-          console.log("set pump time");
-            var pt = $("#pumptime").val();
-            console.log(pt);
-            var msg = {"what": "pumptime", "time": pt};
-            console.log(msg)
-
-            ws.send(JSON.stringify(msg));
-        });
+        // $("#pumptime").change(function(){
+        //   console.log("set pump time");
+        //     var pt = $("#pumptime").val();
+        //     console.log(pt);
+        //     var msg = {"what": "pumptime", "time": pt};
+        //     console.log(msg)
+        //
+        //     ws.send(JSON.stringify(msg));
+        // });
 
 
         $("#restart").click(function(){

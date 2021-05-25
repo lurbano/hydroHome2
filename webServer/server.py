@@ -97,6 +97,9 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 
 			if msg["what"] == "turnon":
 				print("turning on")
+				pt = int(msg["time"])
+				print("pump time", pt)
+				numberfromweb=pt
 				subprocess.Popen(f'sudo python3 /home/pi/hydroHome2/webServer/pumpOn.py --pumptime {numberfromweb}', shell=True)
 				self.write_message({"info":"turnon", "value":"pumping now"})
 
@@ -105,11 +108,11 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 					subprocess.Popen('sudo python3 /home/pi/hydroHome2/webServer/pumpOff.py', shell=True)
 					self.write_message({"info":"turnoff", "value":"pumping stopped"})
 
-			if msg["what"] == "pumptime":
-					pt = int(msg["time"])
-					print("pump time", pt)
-					numberfromweb=pt
-					print("numberfromweb:",numberfromweb)
+			# if msg["what"] == "pumptime":
+			# 		pt = int(msg["time"])
+			# 		print("pump time", pt)
+			# 		numberfromweb=pt
+			# 		print("numberfromweb:",numberfromweb)
 
 
 

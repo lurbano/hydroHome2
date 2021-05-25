@@ -8,3 +8,5 @@
 * This program can be used to run the pump one time for a specified period of time. The default time is 600 seconds so `sudo python3 pumpOn.py` will run the pump for ten minutes. To specify how long you would like it to pump water just do the command line parameter --pumptime and then the amount of time in seconds. An example of this is: `sudo python3 pumpOn.py --pumptime 30`
 #### Turning Off the Pumps Using `pumpOff.py`
 * Running the program `pumpOff.py` should instantly turn off all of the LEDs and the pumps. Run it like this: `sudo python3 pumpOff.py`
+#### Bugs in the code
+* There is an issue with the `except:` function in both `pumpOff.py` and `pumpOn.py` where the LEDs all turn bright white after a keyboard interrupt or a failure in the code. This doesn't affect the pumps as they will still turn off but it does look terrible.

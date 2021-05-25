@@ -16,14 +16,13 @@ secondsneeded=(60*60*24)-pumpTime
 pumptime=10
 
 #LED stuff
-timestorun=4
 numpix = 20
 t=.03
 t2=.05
 pixels = neopixel.NeoPixel(board.D18, numpix)
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-p", "--pump", help = "on or off")
+parser.add_argument("-p", "--pump", default="600", type=int, help = "on or off")
 args = parser.parse_args()
 
 #sudo python3 pumpthing.py --pump on

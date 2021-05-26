@@ -1,4 +1,4 @@
 from ledPixels import *
 
-pix = ledPixels(board.D18, 20)
+pix = ledPixels( 20, board.D18)
 pix.resetPix()
